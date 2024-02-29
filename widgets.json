@@ -1,6 +1,78 @@
 [
     {
-        "icon": "https://www.google.com/favicon.ico",
-        "action": "echo hi"
+        "text": "prevTab",
+        "action": "echo key ctrl+pageup | dotool"
+    },
+    {
+        "text": "nextTab",
+        "action": "echo key ctrl+pagedown | dotool"
+    },
+    {
+        "text": "backwardPage",
+        "action": "echo key alt+Left | dotool"
+    },
+    {
+        "text": "forwardPage",
+        "action": "echo key alt+Right | dotool"
+    },
+    {
+        "text": "closeTab",
+        "action": "echo key ctrl+w | dotool"
+    },
+    {
+        "text": "openLastClosedTab",
+        "action": "echo key ctrl+shift+t | dotool"
+    },
+    {
+        "text": "prevWindow",
+        "action": "echo key alt+Tab | dotool"
+    },
+    {
+        "text": "nextWindow",
+        "action": "echo key alt+shift+Tab | dotool"
+    },
+    {
+        "text": "closeWindow",
+        "action": "echo key alt+F4 | dotool"
+    },
+    {
+        "text": "browser",
+        "action": "echo key f1 | dotool"
+    },
+    {
+        "text": "terminal",
+        "action": "echo key f3 | dotool"
+    },
+    {
+        "text": "editor",
+        "action": "echo key f2 | dotool"
+    },
+    {
+        "text": "cycleWindows",
+        "action": "echo key super+grave | dotool"
+    },
+    {
+        "text": "selectAll",
+        "action": "echo key ctrl+a | dotool"
+    },
+    {
+        "text": "cut",
+        "action": "echo key ctrl+x | dotool"
+    },
+    {
+        "text": "copy",
+        "action": "echo key ctrl+c | dotool"
+    },
+    {
+        "text": "paste",
+        "action": "echo key ctrl+v | dotool"
+    },
+    {
+        "text": "undo",
+        "action": "echo key ctrl+z | dotool"
+    },
+    {
+        "text": "redo",
+        "action": "echo key ctrl+shift+z | dotool"
     }
 ]
