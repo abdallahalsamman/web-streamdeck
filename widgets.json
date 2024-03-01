@@ -1,78 +1,120 @@
 [
     {
+        "text": "<h3>Tabs</h3>"
+    },
+    {
         "text": "prevTab",
-        "action": "echo key ctrl+pageup | dotool"
+        "action": "echo key ctrl+pageup | dotoolc"
     },
     {
         "text": "nextTab",
-        "action": "echo key ctrl+pagedown | dotool"
-    },
-    {
-        "text": "backwardPage",
-        "action": "echo key alt+Left | dotool"
-    },
-    {
-        "text": "forwardPage",
-        "action": "echo key alt+Right | dotool"
+        "action": "echo key ctrl+pagedown | dotoolc"
     },
     {
         "text": "closeTab",
-        "action": "echo key ctrl+w | dotool"
+        "action": "echo key ctrl+w | dotoolc"
     },
     {
-        "text": "openLastClosedTab",
-        "action": "echo key ctrl+shift+t | dotool"
+        "text": "restoreTab",
+        "action": "echo key ctrl+shift+t | dotoolc"
     },
     {
-        "text": "prevWindow",
-        "action": "echo key alt+Tab | dotool"
+        "text": "back",
+        "action": "echo key alt+Left | dotoolc"
     },
     {
-        "text": "nextWindow",
-        "action": "echo key alt+shift+Tab | dotool"
+        "text": "forward",
+        "action": "echo key alt+Right | dotoolc"
     },
     {
-        "text": "closeWindow",
-        "action": "echo key alt+F4 | dotool"
+        "text": "<h3>Windows</h3>"
+    },
+    {
+        "text": "prev",
+        "action": "echo key alt+Tab | dotoolc"
+    },
+    {
+        "text": "next",
+        "action": "echo key alt+shift+Tab | dotoolc"
+    },
+    {
+        "text": "close",
+        "action": "echo key alt+F4 | dotoolc"
+    },
+    {
+        "text": "cycle",
+        "action": "echo key super+grave | dotoolc"
+    },
+    {
+        "text": "<h3>Programs</h3>"
     },
     {
         "text": "browser",
-        "action": "echo key f1 | dotool"
+        "action": "echo key f1 | dotoolc"
+    },
+    {
+        "text": "cursor",
+        "action": "echo key f2 | dotoolc"
     },
     {
         "text": "terminal",
-        "action": "echo key f3 | dotool"
+        "action": "echo key f3 | dotoolc"
     },
     {
-        "text": "editor",
-        "action": "echo key f2 | dotool"
-    },
-    {
-        "text": "cycleWindows",
-        "action": "echo key super+grave | dotool"
+        "text": "<h3>Text</h3>"
     },
     {
         "text": "selectAll",
-        "action": "echo key ctrl+a | dotool"
+        "action": "echo key ctrl+a | dotoolc"
     },
     {
         "text": "cut",
-        "action": "echo key ctrl+x | dotool"
+        "action": "echo key ctrl+x | dotoolc"
     },
     {
         "text": "copy",
-        "action": "echo key ctrl+c | dotool"
+        "action": "echo key ctrl+c | dotoolc"
     },
     {
         "text": "paste",
-        "action": "echo key ctrl+v | dotool"
+        "action": "echo key ctrl+v | dotoolc"
     },
     {
         "text": "undo",
-        "action": "echo key ctrl+z | dotool"
+        "action": "echo key ctrl+z | dotoolc"
     },
     {
         "text": "redo",
-        "action": "echo key ctrl+shift+z | dotool"
+        "action": "echo key ctrl+shift+z | dotoolc"
+    },
+    {
+        "text": "<h3>Mouse</h3>"
+    },
+    {
+        "text": "Left",
+        "action": "echo click left | dotoolc"
+    },
+    {
+        "text": "Double",
+        "action": "echo click left | dotoolc; sleep 0.02; echo click left | dotoolc"
+    },
+    {
+        "text": "Triple",
+        "action": "echo click left | dotoolc; sleep 0.02; echo click left | dotoolc; sleep 0.02; echo click left | dotoolc"
+    },
+    {
+        "text": "Middle",
+        "action": "echo click middle | dotoolc"
+    },
+    {
+        "text": "Right",
+        "action": "echo click right  | dotoolc"
+    },
+    {
+        "text": "<h3>System</h3>"
+    },
+    {
+        "text": "Suspend",
+        "action": "systemctl suspend"
     }
 ]

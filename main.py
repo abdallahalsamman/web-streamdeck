@@ -10,31 +10,64 @@ start = """
 <head>
 <title>Soundboard</title>
 <style>
+body, .webdeck-button {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
 .webdeck-button {
-    padding: 10px;
+    padding: 5px;
     border: 1px solid black;
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
     border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    word-wrap: break-word;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.special {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark), .dark-mode {
+    body {
+        background-color: #121212;
+        color: #E0E0E0;
+    }
+    .webdeck-button {
+        background-color: #333333;
+        border-color: #444444;
+        color: #E0E0E0;
+    }
+    .special {
+        background-color: #4CAF50;
+        color: #000000;
+    }
 }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 </head>
 <body>
-<div style="display: flex; flex-wrap: wrap; gap: 5px;" class="actions-containter">
 """
 
 end = """
-</div>
-<button id="fullscreen-btn">Toggle Fullscreen</button>
+<br>
+<br>
+<span id="fullscreen-btn" class="webdeck-button special">Fullscreen</span>
+<!-- <span id="toggle-dark-mode" class="webdeck-button special">Dark Mode</span> -->
+<span id="refresh-page" class="webdeck-button special">Refresh</span>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
     var socket = io.connect('http://' + document.domain + ':' + location.port);
-    $(".actions-containter *").each(function() {
+    $("span.webdeck-button").each(function() {
         if (this.id) {
             this.addEventListener("click", function() {
                 socket.emit('run_action', {id: this.id});
@@ -53,6 +86,14 @@ $(document).ready(function() {
             }
         }
     });
+    /*const toggleDarkMode = () => {
+        document.body.classList.toggle('dark-mode');
+    };
+    document.getElementById('toggle-dark-mode').addEventListener('click', toggleDarkMode);*/
+    const refreshPage = () => {
+        window.location.reload();
+    };
+    document.getElementById('refresh-page').addEventListener('click', refreshPage);
 });
 </script>
 </body>
@@ -65,12 +106,20 @@ class Soundboard:
         self.socketio = SocketIO(self.app)
         self.widgets = []  # Initialize widgets here
         self.links = []  # It's also a good idea to initialize any other attributes you'll use
+        threading.Thread(target=lambda: os.system('dotoold &')).start()
 
         @self.app.route("/")
         def index():
             self.refresh_widgets()
-            return render_template_string(start + "\n".join(["<div id=\"{}\" class=\"webdeck-button\" >{}</div>".format(link, widget["text"]) for link, widget in zip(self.links, self.widgets)]) + end)
-
+            widget_spans = []
+            for link, widget in zip(self.links, self.widgets):
+                if widget["text"].endswith(">"):
+                    widget_spans.append(widget["text"])
+                    continue
+                span = "<span id=\"{}\" class=\"webdeck-button\" >{}</span>".format(link, widget["text"])
+                widget_spans.append(span)
+            widget_html = "\n".join(widget_spans)
+            return render_template_string(start + widget_html + end)
         @self.socketio.on('run_action')
         def handle_run_action(message):
             link = message['id']
