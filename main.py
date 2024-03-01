@@ -35,10 +35,6 @@ body {
     color: white;
 }
 
-h3 {
-    display: inline-block;
-}
-
 /* Dark mode styles */
 @media (prefers-color-scheme: dark), .dark-mode {
     body {
@@ -110,6 +106,7 @@ class Soundboard:
         self.socketio = SocketIO(self.app)
         self.widgets = []  # Initialize widgets here
         self.links = []  # It's also a good idea to initialize any other attributes you'll use
+        threading.Thread(target=lambda: os.system('dotoold &')).start()
 
         @self.app.route("/")
         def index():
@@ -128,18 +125,12 @@ class Soundboard:
             link = message['id']
             print(f"Running action for link {link}")
             widget = self.widgets[int(link)]
-            supported_actions = ["key", "keydown", "keyup", "type", "click", "buttondown", "buttonup", "wheel", "hwheel", "mouseto", "mousemove", "keydelay", "keyhold", "typedelay", "typehold"]
-            if any(widget["action"].startswith(action) for action in supported_actions):
-                print(f"Writing action {widget['action']} to pipe")
-                self.f.write((widget["action"] + "\n").encode())
-            else:
-                threading.Thread(target=lambda: os.system(widget["action"])).start()
+            threading.Thread(target=lambda: os.system(widget["action"])).start()
 
     def refresh_widgets(self):
         with open("widgets.json") as f:
             self.widgets = json.load(f)
         self.links = list(range(len(self.widgets)))
-        self.f = open("/tmp/dotool-pipe", "wb", 0)
 
 if __name__ == "__main__":
     soundboard = Soundboard()

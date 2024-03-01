@@ -1,98 +1,98 @@
 [
     {
-        "text": "<br><h3>Tabs</h3>"
+        "text": "<h3>Tabs</h3>"
     },
     {
-        "text": "prev",
-        "action": "key ctrl+pageup"
+        "text": "prevTab",
+        "action": "echo key ctrl+pageup | dotoolc"
     },
     {
-        "text": "next",
-        "action": "key ctrl+pagedown"
+        "text": "nextTab",
+        "action": "echo key ctrl+pagedown | dotoolc"
     },
     {
-        "text": "close",
-        "action": "key ctrl+w"
+        "text": "closeTab",
+        "action": "echo key ctrl+w | dotoolc"
     },
     {
-        "text": "restore",
-        "action": "key ctrl+shift+t"
+        "text": "restoreTab",
+        "action": "echo key ctrl+shift+t | dotoolc"
     },
     {
         "text": "back",
-        "action": "key alt+Left"
+        "action": "echo key alt+Left | dotoolc"
     },
     {
         "text": "forward",
-        "action": "key alt+Right"
+        "action": "echo key alt+Right | dotoolc"
     },
     {
-        "text": "<br><h3>Windows</h3>"
+        "text": "<h3>Windows</h3>"
     },
     {
         "text": "prev",
-        "action": "key alt+Tab"
+        "action": "echo key alt+Tab | dotoolc"
     },
     {
         "text": "next",
-        "action": "key alt+shift+Tab"
+        "action": "echo key alt+shift+Tab | dotoolc"
     },
     {
         "text": "close",
-        "action": "key alt+F4"
+        "action": "echo key alt+F4 | dotoolc"
     },
     {
         "text": "cycle",
-        "action": "key super+grave"
+        "action": "echo key super+grave | dotoolc"
     },
     {
-        "text": "<br><h3>Programs</h3>"
+        "text": "<h3>Programs</h3>"
     },
     {
         "text": "browser",
-        "action": "key f1"
+        "action": "echo key f1 | dotoolc"
     },
     {
         "text": "cursor",
-        "action": "key f2"
+        "action": "echo key f2 | dotoolc"
     },
     {
         "text": "terminal",
-        "action": "key f3"
+        "action": "echo key f3 | dotoolc"
     },
     {
-        "text": "<br><h3>Text</h3>"
+        "text": "<h3>Text</h3>"
     },
     {
         "text": "selectAll",
-        "action": "key ctrl+a"
+        "action": "echo key ctrl+a | dotoolc"
     },
     {
         "text": "cut",
-        "action": "key ctrl+x"
+        "action": "echo key ctrl+x | dotoolc"
     },
     {
         "text": "copy",
-        "action": "key ctrl+c"
+        "action": "echo key ctrl+c | dotoolc"
     },
     {
         "text": "paste",
-        "action": "key ctrl+v"
+        "action": "echo key ctrl+v | dotoolc"
     },
     {
         "text": "undo",
-        "action": "key ctrl+z"
+        "action": "echo key ctrl+z | dotoolc"
     },
     {
         "text": "redo",
-        "action": "key ctrl+shift+z"
+        "action": "echo key ctrl+shift+z | dotoolc"
     },
     {
-        "text": "<br><h3>Mouse</h3>"
+        "text": "<h3>Mouse</h3>"
     },
     {
         "text": "Left",
-        "action": "click left"
+        "action": "echo click left | dotoolc"
     },
     {
         "text": "Double",
@@ -108,10 +108,10 @@
     },
     {
         "text": "Right",
-        "action": "click right"
+        "action": "echo click right  | dotoolc"
     },
     {
-        "text": "<br><h3>System</h3>"
+        "text": "<h3>System</h3>"
     },
     {
         "text": "Suspend",
